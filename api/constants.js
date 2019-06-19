@@ -1,0 +1,1 @@
+export const GITHUB_USERS_SEARCH = 'https://api.github.com/search/users?q='
