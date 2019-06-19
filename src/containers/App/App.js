@@ -4,6 +4,7 @@ import Search from './../Search/';
 import Paper from '@material-ui/core/Paper';
 import fetchUsers from '../../api';
 import { withStyles } from '@material-ui/core/styles';
+import UsersTable from './../UsersTable';
 
 
 const styles = theme => ({
@@ -19,13 +20,12 @@ const GithubSearcher = ({
                       classes
                     }) => {
     const [input, setInput] = useState('');
-    const [users, getUsers] = useState();
+    const [users, getUsers] = useState([]);
 
   const handleSearch = (searchInput) => {
       setInput(searchInput)
   };
 
-   const [loading, setLoading] = useState(true);
     const fetchCurrSearch = async () => {
         if(input){
             const UsersBySearch = await fetchUsers(input);
@@ -35,17 +35,13 @@ const GithubSearcher = ({
         }
         return true;
     };
-    const isLoading = async () => {
-        const response = await fetchCurrSearch();
-        console.log("isLoading response", response)
-        setLoading(response);
-    };
     useEffect(() => {
-        isLoading();
+        fetchCurrSearch();
     });
   return (
           <Paper className={classes.root}>
               <Search handleSearch={handleSearch}/>
+              <UsersTable users={users} />
           </Paper>
   );
 };
