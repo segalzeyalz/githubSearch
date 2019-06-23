@@ -4,6 +4,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import UsersFields from './../../components/UserFields';
+import UserData from './../../components/UserData';
 import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -14,13 +15,16 @@ const styles = theme => ({
 });
 const fields = [{
     label: "UserName",
-    field: "login"
+    field: "login",
+    type: "text"
 }, {
     label: "avatar image",
-    field: "avatar_url"
+    field: "avatar_url",
+    type: "image"
 },{
     label: "score",
-    field: "score"
+    field: "score",
+    type: "number"
 }]
 const UsersTable = ({ classes, users=[] }) => {
     return (
@@ -28,11 +32,7 @@ const UsersTable = ({ classes, users=[] }) => {
             <UsersFields fields={fields} />
             <TableBody>
                 {users.map(user =>(
-                <TableRow>
-                    <TableCell>
-                        {user.login}
-                    </TableCell>
-                </TableRow>
+                    <UserData user={user} fields={fields} />
                 ))}
             </TableBody>
         </Table>
