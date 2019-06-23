@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import UsersFields from './../../components/UserFields';
 import UserData from './../../components/UserData';
-import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
