@@ -27,10 +27,10 @@ const GithubSearcher = ({
   };
 
     const fetchCurrSearch = async () => {
+        //Just for not empty inputs
         if(input){
-            const UsersBySearch = await fetchUsers(input);
-            console.log('UsersBySearch', UsersBySearch)
-            getUsers(UsersBySearch.data.items);
+            const UsersBySearch = await fetchUsers(input)
+            getUsers(UsersBySearch.data.items)
             return UsersBySearch ? false : true;
         }
         return true;

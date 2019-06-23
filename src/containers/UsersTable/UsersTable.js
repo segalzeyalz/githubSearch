@@ -9,9 +9,10 @@ const styles = theme => ({
     }
 });
 const UsersTable = ({ classes, users=[] }) => {
+    console.log(users)
     return (
         <div>
-            {users.map(user => <h1></h1>)}
+            {users.map(user => <h1>{user.login}</h1>)}
         </div>
     );
 };
