@@ -7,8 +7,8 @@ import UserData from './../../components/UserData';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    menuButton: {
-        marginRight: theme.spacing(2)
+    setHeight: {
+        minHeight: "800px"
     }
 });
 const fields = [{
@@ -26,7 +26,7 @@ const fields = [{
 }]
 const UsersTable = ({ classes, users=[] }) => {
     return (
-        <Table>
+        <Table className={classes.setHeight}>
             <UsersFields fields={fields} />
             <TableBody>
                 {users.map(user =>(

@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+//getting component by it's type
 import ComponentByType from './../ComponentGenerator';
+
+
 const UserData = ({ user, fields=[] }) => {
     return (
             <TableRow>

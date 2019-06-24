@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import fetchUsers from '../../api';
 import { withStyles } from '@material-ui/core/styles';
 import UsersTable from './../UsersTable';
-
+import Pagination from './../Pagination';
 
 const styles = theme => ({
 root: {
@@ -21,6 +21,7 @@ const GithubSearcher = ({
                     }) => {
     const [input, setInput] = useState('');
     const [users, getUsers] = useState([]);
+    const [page, setPage] = useState(-1);
 
   const handleSearch = (searchInput) => {
       setInput(searchInput)
@@ -31,6 +32,7 @@ const GithubSearcher = ({
         if(input){
             const UsersBySearch = await fetchUsers(input)
             getUsers(UsersBySearch.data.items)
+            setPage(1);
             return UsersBySearch ? false : true;
         }
         return true;
@@ -41,7 +43,8 @@ const GithubSearcher = ({
   return (
           <Paper className={classes.root}>
               <Search handleSearch={handleSearch}/>
-              <UsersTable users={users} />
+              <UsersTable users={users} page={page}/>
+              <Pagination />
           </Paper>
   );
 };

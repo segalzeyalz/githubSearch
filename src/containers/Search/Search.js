@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Fab from '@material-ui/core/Fab';
-
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
