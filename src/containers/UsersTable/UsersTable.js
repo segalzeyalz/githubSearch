@@ -24,12 +24,16 @@ const fields = [{
     field: "score",
     type: "number"
 }]
-const UsersTable = ({ classes, users=[] }) => {
+const getUsersPage = (page, users) => {
+    return page>0? [...users].slice((page-1)*10, page*10): [];
+}
+const UsersTable = ({ classes, users=[], page }) => {
+    const pageRes = getUsersPage(users, page)
     return (
         <Table className={classes.setHeight}>
             <UsersFields fields={fields} />
             <TableBody>
-                {users.map(user =>(
+                {pageRes.map(user =>(
                     <UserData user={user} fields={fields} />
                 ))}
             </TableBody>
@@ -39,7 +43,8 @@ const UsersTable = ({ classes, users=[] }) => {
 
 UsersTable.propTypes = {
     classes: PropTypes.object,
-    users: PropTypes.array
+    users: PropTypes.array,
+    page: PropTypes.number
 };
 
 export default withStyles(styles)(UsersTable);

@@ -16,7 +16,7 @@ const Pagination = ({classes, setPage }) => {
     return (
             <div className={classes.pagesContainer}>
                 {pagesNumber.map((elem, index)=>(
-                    <Button key={index} className={classes.button}>
+                    <Button onClick={setPage} key={index} className={classes.button}>
                         <Typography key={index}>{elem}</Typography>
                     </Button>)
                  )}

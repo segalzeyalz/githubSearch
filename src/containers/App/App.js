@@ -22,7 +22,7 @@ const GithubSearcher = ({
     const [input, setInput] = useState('');
     const [users, getUsers] = useState([]);
     const [page, setPage] = useState(-1);
-
+    const pageSetter = (pageIdx)=> setPage(pageIdx)
   const handleSearch = (searchInput) => {
       setInput(searchInput)
   };
@@ -44,7 +44,7 @@ const GithubSearcher = ({
           <Paper className={classes.root}>
               <Search handleSearch={handleSearch}/>
               <UsersTable users={users} page={page}/>
-              <Pagination />
+              <Pagination setPage={pageSetter}/>
           </Paper>
   );
 };
